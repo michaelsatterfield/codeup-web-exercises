@@ -1,5 +1,37 @@
 
 .fancy-header {
+    text-align: center;
     color: purple;
     text-decoration: underline;
 }
+header{
+    color: darkblue;
+    text-decoration: underline;
+    font-size: larger;
+}
+body{
+    background-image: url("../img/duck codeup.png");
+    background-blend-mode: soft-light;
+    background-size: 7em;
+    background-color: burlywood;
+    font-family: "LingWai TC";
+    font-size: 1.5em;
+
+}
+li {
+    list-style: none;
+    list-style-type: lower-greek;
+}
+td,tr{
+    padding: 2em;
+    font-family: "Times New Roman";
+    font-size: 1em;
+}
+a:hover {
+    color: green;
+    font-size: 1.7em;
+}
+a:visited{
+    color: aliceblue;
+}
+
