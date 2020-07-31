@@ -1,0 +1,15 @@
+Index: flexbox-fundamentals-exercise.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- flexbox-fundamentals-exercise.html	(date 1596043297203)
++++ flexbox-fundamentals-exercise.html	(date 1596043297203)
+@@ -4,6 +4,7 @@
+     <meta charset="UTF-8">
+     <title>Flexbox Fundamentals Exercise</title>
+     <link href="css/flexbox-fundamentals-exercise.css" rel="stylesheet">
++    <link href="" rel="stylesheet">
+     
+ 
+ 
