@@ -1,0 +1,22 @@
+.jumbotron{
+
+    background-image: url("https://java.codeup.com/examples/bootstrap/pizza.png");
+
+
+}
+.container{
+
+
+
+}
+.display-4{
+
+    display: flex;
+    justify-content: center;
+    background-color: #FFFFFF;
+    opacity: 0.6;
+
+
+
+
+}
