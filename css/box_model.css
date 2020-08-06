@@ -1,0 +1,31 @@
+
+
+.a {
+	width: 150px;
+	height: 50px;
+	border: 1px solid black;
+	padding: 10px;
+	font-weight: bold;
+	color: white;
+	margin-top: 10px
+	
+	
+
+ }
+ #orange {
+ 	background-color: orange;
+ 	margin-left: 30px;
+ }
+ #yellow {
+ 	margin-left: 60px;
+ }
+ #green {
+ 	margin-left: 90px;
+ }
+ 
+ #blue {
+ 	margin-left: 120px;
+ }
+ #violet {
+ 	margin-left: 150px;
+ }
