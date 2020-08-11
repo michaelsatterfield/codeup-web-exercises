@@ -51,10 +51,28 @@ var googlehrs = prompt('How many hours worked for Google');
 
 var amazonhrs = prompt('How many hours worked for Amazon');
 
-
 var fbhrs = prompt('How many hours worked for Facebook');
 
 var weekpay = prompt(googleRate *googlehrs) + (amazonRate * amazonhrs) + (fbrate * fbhrs);
+
+console.log(googleRate *googlehrs) + (amazonRate * amazonhrs) + (fbrate * fbhrs);
+
+
+var classCapacity = 30;
+var registeredStudents = 20;
+var classConflicts = true;
+var canEnroll = (classCapacity > registeredStudents) && !classConflicts;
+alert("student able to register for class: " + canEnroll);
+
+
+
+var offernotexpired = confirm("*Press Ok in not expired");
+var numberitems = prompt("how many items are you purchasing?")
+var premiumMembership = confirm("press ok if you are a premium member.");
+var offerapplied = (numberitems > 2 || premiumMembership) && offernotexpired;
+console.log("offer applied: " + offerapplied);
+
+
 
 
 
