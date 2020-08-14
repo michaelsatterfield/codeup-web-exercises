@@ -134,6 +134,7 @@ function checkIfGameIsOver(lives) {
     }
 }
 
+
 checkIfGameIsOver(1)
 
 //TODO: Write a confirm asking the user if they are 13 years of age or older. If they are, alert "You may proceed", if they are not, alert "Sorry, you are not able to proceed"
@@ -144,6 +145,8 @@ checkIfGameIsOver(1)
  } else {
      alert("sorry")
  }
+
+
 
 
 // ================ IF / ELSE IF / ELSE STATEMENT SYNTAX ===============
@@ -202,18 +205,20 @@ var color = function (light) {
 
 // ================ TERNARY STATEMENT ================
 //TODO Together: Regular way - rewrite as ternary
-
-// var message;
-// var success = true;
 //
-// if (success) {
-//     message = "Operation was successful.";
-// } else {
-//     message = "Oops, something went wrong.";
-// }
-// console.log(message);
-
-//WRITE YOUR TERNARY STATEMENT HERE!
+// var message;
+// var success =
+// //
+// // if (success) {
+// //     message = "Operation was successful.";
+// // } else {
+// //     message = "Oops, something went wrong.";
+// // }
+// // console.log(message);
+//
+// //WRITE YOUR TERNARY STATEMENT HERE!
+// message = (success)  "operation successful": "oops something wrong";
+// console.log(message)
 
 
 //TODO: Refactor the following conditional as a ternary
@@ -232,12 +237,44 @@ var color = function (light) {
 
 
 
+// var  numberOfLives
+//
+//      alert((numberOfLives === 0 )) ? "sorry game over" : "next level")
+
+
 // =============== SWITCH STATEMENT ================
 //TODO Together:
 
-// var pizzaPreference = prompt("What kind of pizza do you like?");
-// console.log("User pizza input: " + pizzaPreference);
-//
+     // switch (value) {
+     //     case 0:
+     //
+     //         break;
+     //     case 1:
+     //
+     //         break:
+     //
+     //     default:
+     // }
+
+var pizzaPreference = prompt("What kind of pizza do you like?");
+console.log("User pizza input: " + pizzaPreference);
+
+
+switch(pizzaPreference) {
+    case "pineapple and hot sauce":
+        alert("what a coincedence")
+        break;
+    case "cheese":
+        alert("just plain cheese?");
+        break;
+    case "ham":
+        alert("ham is good");
+        break;
+    default:
+        alert(pizzaPreference + " is okay too.")
+}
+
+
 // if (pizzaPreference === "pineapple and hot sauce") {
 //     alert("What a coincidence, that's my favorite!");
 // } else if (pizzaPreference === "cheese") {
@@ -247,16 +284,51 @@ var color = function (light) {
 // } else {
 //     alert(pizzaPreference + " isn't my favorite, but let's order some!");
 // }
+// var weather = "snowing";
+// if (weather === "snowing") {
+//     alert("its snowing")
+// } else if (weather === "raining") {
+//     alert("rain")
+// } else {
+//     alert("have a fine day")
+// }
+//
 
 
 
 
 //TODO: Write a switch statement that evaluates weather as the condition. Check for "rainy", "sunny", "snow", and a default case.
+var weather = "snowing"
+switch(weather) {
+    case "snowing":
+        alert("its snowing")
+        break;
+    case "sunny":
+        alert("lets go outside")
+        break;
+    case "rainy":
+        alert("its wet and rainy")
+        break;
+    default:
+        alert(weather + "...i dont know that weather")
+}
 
 
 //TODO: Rewrite the intersection function from earlier as a switch statement.
 
+function checklights(color) {
+    var color = prompt("what color is light")
+    switch (color) {
+        case "green":
+            alert('you may go');
+            break;
+        case "red":
+            alert('you may not go');
+            break;
 
+    }
+}
+checklights();
 
 // ================ REVERSE ENGINEERING =================
 // Visit each of these links; outline the steps required to achieve each of these demonstrations. You can write code or just write the logic steps that would achieve each output
@@ -270,3 +342,4 @@ var color = function (light) {
 
 // 3) https://mdn.github.io/learning-area/javascript/building-blocks/simple-ternary.html
 
+     (conditon)
