@@ -330,6 +330,11 @@ function checklights(color) {
 }
 checklights();
 
+
+
+
+
+
 // ================ REVERSE ENGINEERING =================
 // Visit each of these links; outline the steps required to achieve each of these demonstrations. You can write code or just write the logic steps that would achieve each output
 
