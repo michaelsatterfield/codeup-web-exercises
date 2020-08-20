@@ -1,136 +1,27 @@
 "use strict";
 
-/**
- * TODO:
- * Create a function called 'sayHello' that takes a parameter 'name'.
- * When called, the function should return a message that says hello to the passed in name.
- *
- * Example
- * > sayHello("codeup") // returns "Hello, codeup!"
- */
+var myNameIs = 'Michael'; // TODO: Fill in your name here.
 
-function sayHello(name){
-   return "Hello " + name
-
+// TODO:
+// Create a function called 'sayHello' that takes a parameter 'name'.
+// When called, the function should log a message that says hello from the passed in name.
+function sayHello(name) {
+	console.log("Hello " + name + "!")
 }
-sayHello("codeup");
-console.log(sayHello("codeup"))
+// TODO: Call the function 'sayHello' passing the variable 'myNameIs' as a parameter.
+ sayHello(myNameIs);
+// Don't modify the following line
+// It generates a random number between 1 and 100 and stores it in random
+var random = Math.floor((Math.random()*100)+1);
 
+console.log("Random number is: " + random);
 
-
-
-/**
-
- * TODO:
- * Call the function 'sayHello' and pass your name as a string literal argument.
- * Store the result of the function call in a variable named 'helloMessage'.
- *
- * console.log 'helloMessage' to check your work
- */
- sayHello("michael")
-    var helloMessage = sayHello('michael');
-    console.log(helloMessage)
-
-
-/**
- * TODO:
- * Store your name as a string in a variable named 'myName', and pass that
- * variable to the 'sayHello' function. You should see the same output in the
- * console.
- */
-var myName = "michael"
-sayHello(myName);
-console.log(sayHello(myName));
-
-
-
-// Don't modify the following line, it generates a random number between 1 and 3
-// and stores it in a variable named random
-var random = Math.floor((Math.random() * 3) + 1);
-
-/**
- * TODO:
- * Create a function called 'isTwo' that takes a number as a parameter.
- * The function should return a boolean value based on whether or not the passed
- * number is the number 2.
- *
- * Example
- * > isTwo(1) // returns false
- * > isTwo(2) // returns true
- * > isTwo(3) // returns false
- *
- * Call the function 'isTwo' passing the variable 'random' as a argument.
- *
- * console.log *outside of the function* to check your work (you should see a
- * different result everytime you refresh the page if you are using the random
- * number)
- */
-
-function isTwo(number){
-    var x = number === 2;
-    return x;
-   // or return = number === 2;
+// TODO:
+// Create a function called 'isOdd' that takes a number as a parameter.
+// The function should use the ternary operator to log a message.
+// The log should tell the number passed in and whether it is odd or not.
+function isOdd(numberToTest) {
+	(numberToTest % 2 === 1) ? console.log("Number was odd.") : console.log("Number was even");
 }
-
-console.log(isTwo(random));
-
-
-/**
- * TODO:
- * Create a function named 'calculateTip' to calculate a tip on a bill at a
- * restaurant. The function should accept a tip percentage and the total of the
- * bill, and return the amount to tip
- *
- * Examples:
- * > calculateTip(0.20, 20) // returns 4
- * > calculateTip(0.25, 25.50) // returns 6.375
- * > calculateTip(0.15, 33.42) // returns 5.013
- */
- const calculateTip = function(tip, bill){
-    var tipAmt = tip * bill;
-    return tipAmt;
-
-}
-
-calculateTip(.20, 20)
-alert("tip amount is $" + calculateTip(.20, 20))
-console.log("tip amount is $" + calculateTip(.20, 20))
-
-
-
-
-/**
- * TODO:
- * Use prompt and alert in combination with your calculateTip function to
- * prompt the user for the bill total and a percentage they would like to tip,
- * then display the dollar amount they should tip
- */
-var message ="what is your total bill?"
-var bill = prompt(message);
-message = "what percentage would you like to tip?";
-var percent = prompt(message);
-alert("You should tip $" + calculateTip( percent, bill));
-
-
-/**
- * TODO:
- * Create a function named `applyDiscount`. This function should accept a price
- * (before a discount is applied), and a discount percentage (a number between 0
- * and 1). It should return the result of applying the discount to the original
- * price.
- *
- * Example:
- * > var originalPrice = 100;
- * > var dicountPercent = .2; // 20%
- * > applyDiscount(originalPrice, dicountPercent) // 80
- *
- * > applyDiscount(45.99, 0.12) // 40.4712
- */
-function applyDiscount(price, discount){
-    return price -(price * discount);
-
-}
-var originalPrice = 100;
- var dicountPercent = .2; // 20%
-applyDiscount(originalPrice, dicountPercent) // 80
-console.log(applyDiscount(45.99, 0.12)); // 40.4712
+// TODO: Call the function 'isOdd' passing the variable 'random' as a parameter.
+isOdd(random);

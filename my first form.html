@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My First HTML Form</title>
+</head>
+<body>
+	<h2>User Login</h2>
+	<form method="POST" action="http://request-inspector.glitch.me/">
+	<div>
+		<label for="username">Username</label>
+		<input name="username" type="text" 
+		placeholder="Enter User Name Here">
+	<div>
+		<label for="password">Password</label>
+		<input name="password" type="password"
+		placeholder="Enter Secret Password">
+		<br>
+		<p>What Gender Do You Identify As?</p>
+		<label>
+		<input type="radio" id="Guy" name="what you is?" value="guy">
+		Guy</label>
+		<label>
+		<input type="radio" id="Guy" name="what you is?" value="girl">
+		Girl</label>
+		<p>
+		<label for="Music">Do You Like Music?</label>
+				<select id="Music" name="music question">
+				<option>Yes</option>
+				<option>No</option>
+			</select>
+		</p>
+	<div>
+		<input type="submit" value="send info">
+	</div>
+	<br>
+
+	<h2>Compse an Email</h2>
+	<form method="POST" action="http://request-inspector.glitch.me/">
+		<p>
+			<label for="to:">to:</label>
+			<input type="text" name="to:">
+		</p>
+		<p>
+			<label for="from">from:</label>
+			<input type="text" name="to:">
+		</p>
+		<p>
+			<label for="subject">subject</label>
+			<input type="text" name="subject">
+		</p>
+		<p>
+			<label for="body"><br>body</label>
+			<textarea  id="email-body" name="email-body" rows="5" cols="40"></textarea> 
+			<input type="submit" name="send" value="send">
+		</p>
+		<p><h3><em> Which of These Would You Prefer at this Moment?</em><h3/></p>
+		<label><input type="checkbox" id="protein" name="favorite food[]" value="Steak">Steak</label>
+		<label><input type="checkbox" id="Carb" name="favorite food[]" value="Pizza">Pizza</label><label><input type="checkbox" id="Fat" name="favorite food[]" value="Ice Cream">Ice Cream</label>
+			<button type="submit">Submit</button>
+		<div>
+			<label for="select testing">Select Testing</label>
+				<select id="testing" name="testing">
+				<option value="1">Yes</option>
+				<option value="0">No</option>
+			</select>
+	</form>
+
+
+
+</body>
+</html>
