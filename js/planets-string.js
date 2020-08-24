@@ -26,5 +26,9 @@
      */
     console.log(planetsArray.join("<br>"));
 
-    console.log("<ul>" + planetsArray.join("<li>") + "<ul>")
+    var planetsLists = "<ul>" + "<li>" + planetsArray.join("</li><li>") + "</li>" + "</ul>"
+    alert(planetsLists)
+    console.log(planetsLists)
+
+    document.getElementById("planets").innerHTML = planetsLists;
 })();

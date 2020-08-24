@@ -20,6 +20,8 @@
 
     console.log('Adding "The Sun" to the beginning of the planets array.');
     console.log(planets.unshift("The Sun"))
+    // planets.shift();
+    // console.log(planets)
 
     console.log('Adding "Pluto" to the end of the planets array.');
     console.log(planets.push("Pluto"));
