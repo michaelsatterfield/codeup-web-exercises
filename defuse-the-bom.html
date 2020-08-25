@@ -8,7 +8,7 @@
 
 <h2 id="message">This BOM will self destruct in <span id="timer">5</span> seconds...</h2>
 <button id="defuser">Defuse the BOM</button>
-
+<h1 id="demo"></h1>
 <script>
 (function() {
     "use strict";
@@ -17,7 +17,7 @@
 
     // TODO: This function needs to be called once every second
     function updateTimer() {
-        if (detonationTimer == 1000) {
+        if (detonationTimer == 0) {
             alert('EXTERMINATE!');
             document.body.innerHTML = '';
         } else if (detonationTimer > 0) {
@@ -26,11 +26,12 @@
 
         detonationTimer--;
     }
+    let countDn = setInterval(updateTimer,1000)
 
     // TODO: When this function runs, it needs to
     // cancel the interval/timeout for updateTimer()
     function defuseTheBOM() {
-
+        clearInterval(countDn);
     }
 
     // Don't modify anything below this line!
@@ -41,6 +42,13 @@
     var defuser = document.getElementById('defuser');
     defuser.addEventListener('click', defuseTheBOM);
 })();
+
+(function() {
+    var paragraph = document.getElementById('demo');
+    paragraph.innerHTML = 'IO Rocks';
+    console.log(paragraph.outerHTML)
+})();
+
 </script>
 </body>
 </html>
