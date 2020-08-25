@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form name="login">
+    <div>
+        <label for="text">Enter some tes</label>
+        <input id="text" name="sometext" type="text" value="user">
+    </div>
+</form>
+<br>
+<button onclick="sometext()">Save Text</button>
+<br><br>
+<h1 id="out"></h1>
+<script>
+    "use strict";
+    let hout = document.getElementById('out');
+    (function() {
+        // get the "username" input
+        var usernameInput = document.forms.login.sometext;
+        // log the value of the "username" input
+        hout.innerHTML = text.value;
+        console.log()
+    })();
+    function sometext() {
+        var userNameInput = document.forms.login.sometext;
+        console.log(text.value)
+        hout.innerText = text.value;
+    }
+</script>
+
+
+
+</body>
+</html>
