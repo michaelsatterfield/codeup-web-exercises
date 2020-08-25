@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>This is a demo page</h1>
+<button type="button" onClick="reloadFromCache()">Refresh!</button>
+<button type="button" onClick="reloadFromServer()">Refresh!</button>
+<h2>Hi</h2>
+<script>
+    function reloadFromCache() {
+        location.reload(); // reload page, possibly from cache
+        alert("from cache, possibly")
+    }
+    function reloadFromServer() {
+        location.reload(true); // reload page from server
+        alert("from server")
+    }
+</script>
+
+</script>
+
+    </body>
+</html>
