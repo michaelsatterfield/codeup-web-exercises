@@ -4,58 +4,21 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
-<p id="demo">para</p>
-<p id="demo2">parade</p>
-<form name="login">
-    <div>
-        <label for="text">Enter some tes</label>
-        <input id="text" name="sometext" type="text" value="user">
-    </div>
-</form>
-<br>
-<button onclick="sometext()">Save Text</button>
-<br><br>
-<h1 id="out"></h1>
+<body bgcolor="#faebd7">
+<p id="p1">To be or not to be?</p>
+<p id="p2" data-playname="Hamlet">That is the question.</p>
 <script>
     "use strict";
-    let hout = document.getElementById('out');
     (function() {
-        // get the "username" input
-        var usernameInput = document.forms.login.sometext;
-        // log the value of the "username" input
-        hout.innerHTML = text.value;
-        console.log()
+        var style = document.getElementById('p1');
+        style.style.fontSize = '4em'
+        // Change the style of p1 to 'font-size: 4rem'd
+        // Get the data-* attribute from p2
+        // Print the data-* attribute on the console log.
+        var play = document.getElementById('p2')
+        let dataat = p2.getAttribute('data-playname')
+        alert(dataat)
     })();
-    function sometext() {
-        var userNameInput = document.forms.login.sometext;
-        console.log(text.value)
-        hout.innerText = text.value;
-    }
-    (function() {
-        // Get the main heading h1 by id
-        var mainHeading = document.getElementById('demo');
-
-        console.log(mainHeading.innerHTML); // Prints Hello World!
-
-        // Assign a new value to the inner HTML of the main heading
-        mainHeading.innerHTML = "Hello Hyperion!";
-
-        console.log(mainHeading.innerHTML); // Prints Hello Codeup!
-
-        // Get the main section div by id
-        var mainSection = document.getElementById('demo2');
-
-        alert(mainSection.innerText)
-        // Prints
-        // <p>Paragraph 1</p>
-        // <p>Paragraph 2</p>
-    })();
-
-
 </script>
-
-
-
 </body>
 </html>
