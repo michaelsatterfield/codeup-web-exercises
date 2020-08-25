@@ -5,6 +5,8 @@
     <title>Title</title>
 </head>
 <body>
+<p id="demo">para</p>
+<p id="demo2">parade</p>
 <form name="login">
     <div>
         <label for="text">Enter some tes</label>
@@ -30,6 +32,27 @@
         console.log(text.value)
         hout.innerText = text.value;
     }
+    (function() {
+        // Get the main heading h1 by id
+        var mainHeading = document.getElementById('demo');
+
+        console.log(mainHeading.innerHTML); // Prints Hello World!
+
+        // Assign a new value to the inner HTML of the main heading
+        mainHeading.innerHTML = "Hello Hyperion!";
+
+        console.log(mainHeading.innerHTML); // Prints Hello Codeup!
+
+        // Get the main section div by id
+        var mainSection = document.getElementById('demo2');
+
+        alert(mainSection.innerText)
+        // Prints
+        // <p>Paragraph 1</p>
+        // <p>Paragraph 2</p>
+    })();
+
+
 </script>
 
 
