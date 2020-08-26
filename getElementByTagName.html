@@ -5,10 +5,12 @@
     <title>Title</title>
 </head>
 <body>
+<h2 id="elem"></h2>
 <h1>Hello there</h1>
 <p>1</p>
 <p>2</p>
 <p>3</p>
+<button id="btn1">Me!</button>
 <script>
   var dishes = ['roast','corn','rice pilaf', 'casserole', 'flan'];
   for (i = 0; i <= dishes.length; i++){
@@ -27,6 +29,32 @@
       console.log(stuff, info[stuff])
   }
 
+
+
+
+  // create a handler function
+  var listenToMe = function (event) {
+      alert('You clicked me!');
+  }
+
+  // // register the listener to handle clicks on btn1
+  document.getElementById('btn1').addEventListener('click', listenToMe);
+
+
+
+  var index = document.getElementById('elem');
+  var output = '';
+  for (i = 0; i<= 10; i++){
+      output += 'the index is ' + '<br'
+      console.log(i)
+
+      document.getElementById('elem')
+     index.innerText = [i]
+
+
+  }
+
+</script>
 // </script>
 
 
