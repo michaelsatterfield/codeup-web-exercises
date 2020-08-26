@@ -10,14 +10,22 @@
 <p>2</p>
 <p>3</p>
 <script>
-    "use strict";
-    (function() {
-        // Get all elements with class 'even'
-        var Elements = document.getElementsByTagName('h1');
-        for (var i = 0; i < Elements.length; i++) {
-            console.log(Elements[i].innerHTML);
-        }
-    })();
+  var dishes = ['roast','corn','rice pilaf', 'casserole', 'flan'];
+  for (i = 0; i <= dishes.length; i++){
+      console.log(dishes[i])
+  }
+
+
+  const info = {
+      age: 34,
+      name: 'jim',
+      height: 5.5,
+      ethnicity: "caucasian",
+      birthplace: 'Brooklyn, NY'
+  }
+  for (var stuff in info){
+      console.log(stuff, info[stuff])
+  }
 
 // </script>
 
