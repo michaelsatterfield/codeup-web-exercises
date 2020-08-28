@@ -7,7 +7,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXNhdHRlcmZpZWxkIiwiYSI6ImNrZWN4MTg5ZjBuMnkyd
 geocode("Contramar Mexico City, Mexico", mapboxgl.accessToken).then(function(result) {
     console.log(result);
     map.setCenter(result);
-    map.setZoom(15);
+    map.setZoom(8);
 
 });
 
@@ -28,10 +28,10 @@ function geocode(search, token) {
 
 var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v9',
-    zoom: 10,
+    style: 'mapbox://styles/mapbox/satellite-streets-v11',
+
     pitch: 45,
-    center: [-98.4916, 29.4252]
+    center: [-99.1685, 19.4196]
 });
 
 
@@ -102,32 +102,59 @@ map.on('load', function() {
 
 
 
-var marker = new mapboxgl.Marker()
-    .setLngLat([-99.1672, 19.4196 ])
-    .addTo(map);
 
-var restaurant = new mapboxgl.Popup()
-    .setHTML("<p>World Renowned Seafood Restaurant by Gabriela Camara</p>")
-    // .addTo(map)
-
-marker.setPopup(restaurant)
-
-
-map.on('click', 'places', function(e) {
-    var coordinates = e.features[0].geometry.coordinates.slice();
-    var description = e.features[0].properties.description;
-
-// Ensure that if the map is zoomed out such that multiple
-// copies of the feature are visible, the popup appears
-// over the copy being pointed to.
-    while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+const places = [
+    {
+        Name: 'El Vilsito'   ,
+        Info: '<p><img width="100px" src="img/pastor%20el%20vilsito.jpeg"><br>Hailed as one of the Best Pastor Tacos in Mexico City</p>',
+        Coordinates: [- 99.1527, 19.3894]
+    },
+    {
+        Name: 'La Gruta'    ,
+        Info: '<p><img width="150px" src="img/gruta.jpeg"><br>Famous Restaurant Inside of a Cave<br> right next to<br>the Pyramid of the Sun (Teotihuacan)</p>',
+        Coordinates: [-98.8397,19.6888  ]
+        
+    },
+    {
+        Name: 'Contramar'   ,
+        Info: '<p><img width="100px" src="img/contramar.jpg"><br>World Renowned Seafood Restaurant /<br>by<br> Gabriela Camara</p>',
+        Coordinates: [-99.1685, 19.4196]
+      
     }
 
+];
+places.forEach(function (place){
+
+
+
+
+    var restaurant = new mapboxgl.Popup()
+        .setHTML([place.Name+ place.Info])
+
+
+
+    var marker = new mapboxgl.Marker().setLngLat(place.Coordinates).addTo(map).setPopup(restaurant);
 
 
 });
 
+
+
+
+
+    map.on('click', 'places', function (e) {
+        var coordinates = e.features[0].geometry.coordinates.slice();
+        var description = e.features[0].properties.description;
+
+// Ensure that if the map is zoomed out such that multiple
+// copies of the feature are visible, the popup appears
+// over the copy being pointed to.
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+
+
+    });
 
 
 
@@ -191,4 +218,5 @@ function switchLayer(layer) {
 for (var i = 0; i < inputs.length; i++) {
     inputs[i].onclick = switchLayer;
 }
+
 
