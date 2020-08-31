@@ -7,7 +7,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXNhdHRlcmZpZWxkIiwiYSI6ImNrZWN4MTg5ZjBuMnkyd
 geocode("Contramar Mexico City, Mexico", mapboxgl.accessToken).then(function(result) {
     console.log(result);
     map.setCenter(result);
-    map.setZoom(8);
+    map.setZoom(5.5);
 
 });
 
