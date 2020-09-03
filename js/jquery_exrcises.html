@@ -8,6 +8,7 @@
 
     <h1 class="codeup">Jquery Selectors are $</h1>
     <h2>version 1.1.1.1.</h2>
+    <p id="p">its good to see you</p>
 <input id="input" type="text">
     <button class="codeup" id="btn">Click</button>
 <div id="input2">Jquery is Cool</div>
@@ -30,15 +31,51 @@
 
 <!--********jQuery get element by ID**********-->
 <script>
+
     (function(){ // IFEE
         "use strict"
         $(document).ready(function() {
-         var border = $('.codeup').css('border', '1px solid red');
 
-         var fontSize = $('li').css('font-size', '20px');
-         var h1 = $('h1').html();
-         alert(h1);
-         var highLight = $('h1, p, li').css('background-color','yellow');
+            $('h1').click(
+                function(){
+                    $(this).css('background-color', 'orange')
+                })
+            $('p').dblclick(
+                function(){
+                    $(this).css('font-size', '18px')
+                })
+
+            let bColor = $('li').hover(
+                function() {
+                    bColor = $(this).css('color')
+                    $(this).css('color', 'red');
+                },
+                function(){
+                    $(this).css('color', bColor);
+
+
+                })
+
+            // $('#codeup').hover(
+            //     function() {
+            //         fsize = $(this).css('font-size');
+            //         alert(fsize)
+            //         var newSize = Number.parseInt(fsize) * 1.2;
+            //         $(this).css('font-size', newSize);
+            //     },
+            //     function() {
+            //         $(this).css('font-size', fsize);
+            //     }
+            // );
+
+
+
+         // var border = $('.codeup').css('border', '1px solid red');
+         //
+         // var fontSize = $('li').css('font-size', '20px');
+         // var h1 = $('h1').html();
+         // alert(h1);
+         // var highLight = $('h1, p, li').css('background-color','yellow');
 
 
 
