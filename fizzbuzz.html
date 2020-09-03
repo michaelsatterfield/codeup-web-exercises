@@ -19,9 +19,7 @@
         alert("from server")
     }
 
-
-
-
+    //************************************fizzbuzz***************************************
     function fizzbuzz(num) {
         for(var i=1; i <= num; i++) {
             if(i % 15 === 0) {
@@ -35,9 +33,33 @@
             }
             i++;
         }
-
     }
     fizzbuzz(50)
+
+
+
+    //************************************GET AVERAGE************************************
+
+    let grades = [90, 80, 50, 100]
+    // var total = 4
+    // for(var i = 0; i < grade.length; i++) {
+    //     total += grade[i];
+    // }
+    // var avg= total/grade
+    // console.log(avg)
+
+
+    var total = 0;
+    for(var i = 0; i < grades.length; i++) {
+        total += grades[i];
+    }
+    var avg = total / grades.length;
+
+    console.log(avg)
+
+
+
+
 
 </script>
 
