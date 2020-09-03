@@ -6,11 +6,13 @@
 </head>
 <body>
 
-<h1>jQuery</h1>
+<h1 class="important">sdsdcsdcsdc</h1>
+<h2>version 1.1.1.1.</h2>
 <input id="input" type="text">
 <button id="btn">Click</button>
-<div id="input2"></div>
-
+<div id="input2">Jquery is Cool</div>
+<h3>man hello </h3>
+<p>llorem</p>
 
 
 
@@ -21,14 +23,17 @@
 
 <!--********jQuery get element by ID**********-->
 <script>
-    (function(){
+    (function(){ // IFEE
         "use strict"
+        $().ready(function() {
+            $('h3').css('color', 'red');
+            $('h1,h2').css('background-color', 'lightblue')
+            $('*').css('border', '2px dashed')
 
-    $().ready(function() {
-        $("#input2").html("<h2>hello my name is michael satterfield and I am learning JQuery </h2>");
-        alert('the domm loaded');
-    })
-     })();
+
+            alert("hello")
+        });
+    })();
 </script>
 
 
