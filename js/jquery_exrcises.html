@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>jQuery</h1>
+<input id="input" type="text">
+<button id="btn">Click</button>
+<div id="input2"></div>
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous">
+
+</script>
+
+<!--********jQuery get element by ID**********-->
+<script>
+    (function(){
+        "use strict"
+
+    $().ready(function() {
+        $("#input2").html("<h2>hello my name is michael satterfield and I am learning JQuery </h2>");
+        alert('the domm loaded');
+    })
+     })();
+</script>
+
+
+</body>
+</html>
