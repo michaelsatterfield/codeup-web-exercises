@@ -15,7 +15,7 @@
     <h3 class="codeup">man hello </h3>
     <p class="">lorem lorem lorem ..ipsum?</p>
     <div>
-        <uL>
+        <uL style="color: #007069">
             <li>hey hey hey</li>
             <li>we are those monkeys</li>
         </uL>
@@ -52,9 +52,18 @@
                 },
                 function(){
                     $(this).css('color', bColor);
-
-
                 })
+
+            $('#input').click(function(){
+                alert('key was pushed')
+
+            });
+
+            $('#input').on('keyup', function(){
+                alert("key on is on" )
+            })
+
+            $('#input').off('click');
 
             // $('#codeup').hover(
             //     function() {
