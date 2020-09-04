@@ -9,15 +9,11 @@
 <button type="button" onClick="reloadFromCache()">Refresh!</button>
 <button type="button" onClick="reloadFromServer()">Refresh!</button>
 <h2>Hi</h2>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous">
+
+</script>
+
 <script>
-    function reloadFromCache() {
-        location.reload(); // reload page, possibly from cache
-        alert("from cache, possibly")
-    }
-    function reloadFromServer() {
-        location.reload(true); // reload page from server
-        alert("from server")
-    }
 
     //************************************fizzbuzz***************************************
     function fizzbuzz(num) {
@@ -57,13 +53,42 @@
 
     console.log(avg)
 
+//******factors of a parameter*******************
+
+        function factors(n)
+        {
+            var num_factors = [], i;
+
+            for (i = 1; i <= Math.floor(Math.sqrt(n)); i += 1)
+                if (n % i === 0)
+                {
+                    num_factors.push(i);
+                    if (n / i !== i)
+                        num_factors.push(n / i);
+                }
+            num_factors.sort(function(x, y)
+            {
+                return x - y;});  // numeric sort
+            return num_factors;
+        }
+        console.log(factors(15));
+
+    (function(){
+        'use strict'
+            $(document).ready(function() {
+
+                $('h1').html(factors(15).toString());
+
+            })
+
+    })()
 
 
 
 
 </script>
 
-</script>
+
 
     </body>
 </html>
