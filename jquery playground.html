@@ -1,10 +1,139 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery Fun</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <style type="text/css">
+        .jumbotron {text-align: center;}
+        .red {background-color: red;}
+        .purple {background-color: mediumpurple;}
+        .orange {background-color: darkorange}
+        .hidden {display:none;}
+        .cute {
+            color: blueviolet;
+
+            font-family: cursive;
+        }
+        .underlined {
+            text-decoration: underline;
+        }
+    </style>
+
 </head>
 <body>
-$END$
+<main class="container">
+    <section class="jumbotron">
+        <h1>Fun with jQuery!</h1>
+        <button id="btn1" type="button" data-id="1" class="btn btn-default">#btn1</button>
+        <button id="btn2" type="button" data-id="2" class="btn btn-default">#btn2</button>
+        <button id="btn3" type="button" data-id="3" class="btn btn-default">#btn3</button>
+        <button id="btn4" type="button" data-id="4" class="btn btn-default">#btn4</button>
+    </section>
+    <section class="col-xs-3">
+        <article id="panel1" class="panel panel-primary">
+            <div class="panel-heading">
+                #panel1
+            </div>
+            <div class="panel-body"> Content
+            </div>
+        </article>
+    </section>
+    <section class="col-xs-3">
+        <article id="panel2" class="panel panel-primary">
+            <div class="panel-heading">
+                #panel2
+            </div>
+            <div class="panel-body"> Content
+            </div>
+        </article>
+    </section>
+    <section class="col-xs-3">
+        <article id="panel3" class="panel panel-primary">
+            <div class="panel-heading">
+                #panel3
+            </div>
+            <div class="panel-body"> Content
+            </div>
+        </article>
+    </section>
+    <section class="col-xs-3">
+        <article id="panel4" class="panel panel-primary">
+            <div class="panel-heading">
+                #panel4
+            </div>
+            <div class="panel-body"> Content
+            </div>
+        </article>
+    </section>
+    <section id="list">
+        <ul>
+            <li>Puppies</li>
+            <li>Bunnies</li>
+            <li>Chickies</li>
+        </ul>
+    </section>
+</main>
+<!-- jQuery and bootstrap -->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script>
+
+    $(document).ready(function(){
+
+        console.log("Ready to play!");
+        // var panel1Content = $("#panel1").html(); // getter
+        // console.log(panel1Content);
+        // $("#panel1").html("Here is modified content"); // setter
+
+        var panel1Background = $("#panel1").css("background-color");
+        console.log(panel1Background);
+        var panel1Color = $("#panel1").css("color");
+        console.log(panel1Color);
+
+        $("#btn1").click(function () {
+            $("#panel1").toggleClass("purple");
+        });
+        $("#btn2").click(function () {
+            $("#panel2").toggleClass("red");
+        });
+        $("#btn3").click(function () {
+            //     // if (!$("#panel3").hasClass("hidden")) {
+            $("#panel3").toggleClass("hidden");
+            //     // } else {
+            //     //     $("#panel3").removeClass("hidden");
+            //     // }
+        });
+        $("#btn4").click(function () {
+            $("#panel4")
+                .toggleClass("panel-primary")
+                .toggleClass("panel-warning");
+        });
+
+
+        $(".btn").each(function(){
+
+            var id = $(this).attr("data-id");
+            $(this).dblclick(function(){
+                $("#panel"+id).toggleClass("hidden");
+            })
+
+        });
+
+        $("ul").children().addClass("cute");
+        $("li").first().addClass("underlined")
+        // document.getElementsByTagName("li")[0] // vanilla equivalent to .first()
+
+        $("li").click(function(){
+            $(this).next().css({
+                fontSize:
+                    (parseInt($(this).next().css("font-size"))*1.2) + "px"
+            })
+        });
+    });
+
+</script>
 </body>
 </html>
