@@ -9,8 +9,15 @@
     </audio>
 
     <style type="text/css">
-        .container {display: flex;
-        flex-direction: row;
+
+
+        #ambientSound {
+
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
         }
 
 
@@ -18,7 +25,7 @@
             background-repeat: round;
             width: 500px;
             min-height: 500px;
-            visibility: inherit;
+            display: none;
 
 
         }
@@ -37,6 +44,13 @@
             margin-bottom: 0px;
         }
 
+        .yosemitePark, .zionPark, .hotSpringsPark, .grandCanyonPark,.regMessage {
+            display: none;
+        }
+
+
+
+
         .fact1 {background-color: yellow}
         .fact2 {background-color: yellow}
         .fact3 {background-color: yellow}
@@ -53,12 +67,22 @@
 
 <body>
 <main class="container">
+
+<div class="newsletter">
+    <h1><button style="height: 100px">Would you like to sign up for our newslettter?</button><span class="hideX"><button>X</button></span></h1>
+</div>
+<section class="register">
+    <h2 class="regMessage">Register for our Website!<span class="removeReg"><button>x</button></span> </h2>
+</section>
+
+
+
 <dl>
     <dt class="parksClick" id=""> <button type="button"> <h1>FAQ's about National Parks</h1></button></dt>
 
 <div>
+    <h3 class="yosemiteH3"><button type="reset">Yosemite</button></h3>
     <ul class="yosemitePark">
-        <h3><button type="reset">Yosemite</button></h3>
         <li>its in America</li>
         <li>its a park</li>
         <li>its got trees</li>
@@ -67,8 +91,8 @@
     </ul>
 </div>
 <div>
+    <h3 class="zionH3"><button type="reset">Zion National Park</button></h3>
     <ul class="zionPark">
-        <h3><button type="reset">Zion National Park</button></h3>
         <li>its in America</li>
         <li>its a park</li>
         <li>its got trees</li>
@@ -77,8 +101,8 @@
     </ul>
 </div>
 <div>
+    <h3 class="hotSpringsH3"><button type="reset">Hot Springs National Park</button></h3>
     <ul class="hotSpringsPark">
-        <h3><button type="reset">Hot Springs National Park</button></h3>
         <li>its in America</li>
         <li>its a park</li>
         <li>its got trees</li>
@@ -88,8 +112,8 @@
 </div>
 <div>
 
+    <h3 class="grandCanyonH3"><button type="reset">Grand Canyon National Park</button></h3>
     <ul class="grandCanyonPark">
-        <h3><button type="reset">Grand Canyon National Park</button></h3>
         <li>its in America</li>
         <li>its a park</li>
         <li>its got trees</li>
@@ -121,18 +145,47 @@
 <script>
     $(document).ready(function(){
 
+        //***********************************shows info about parks******************
+        $('.yosemiteH3').click(function (){
+            $('.yosemitePark').slideToggle();
+        })
+
+        $('.zionH3').click(function (){
+            $('.zionPark').slideToggle();
+        })
+
+        $('.hotSpringsH3').click(function (){
+            $('.hotSpringsPark').slideToggle();
+        })
+
+        $('.grandCanyonH3').click(function (){
+            $('.grandCanyonPark').slideToggle();
+        })
 
 
 
+
+
+        //**********************************register**********///
+        $('.regMessage').delay(8000).show(1000).fadeIn(300);
+
+        $('.removeReg').click(function (){
+            $('.regMessage').hide()
+        })
+
+        //********************************newsletter********//
+
+        $('.hideX').click(function (){
+            $('.newsletter').hide()
+        })
 
         //**toggle hidden
         //**toggle hidden
         $('.parksClick').click(function(){
 
             $('audio#ambientSound')[0].play()
+            // $('audio#ambientSound')[0].pause()
             $('.image').toggle("visible")
-
-
 
         })
 
@@ -144,36 +197,12 @@
         $('#2').click(function(){
             $('#2').toggleClass("fact1")
         })
-        $('#3').click(function(){
-            $('#3').toggleClass("fact1")
-        })
-        $('#4').click(function(){
-            $('#4').toggleClass("fact1")
-        })
-        $('#5').click(function(){
-            $('#5').toggleClass("fact1")
-        })
-        $('#6').click(function(){
-            $('#6').toggleClass("fact1")
-        })
-        $('#7').click(function(){
-            $('#7').toggleClass("fact1")
-        })
-        $('#8').click(function(){
-            $('#8').toggleClass("fact1")
-        })
-        $('#9').click(function(){
-            $('#9').toggleClass("fact1")
-        })
-        $('#10').click(function(){
-            $('#10').toggleClass("fact1")
-        })
-
 
 
 
 
         $('.yosemitePark').click(function() {
+
             $('#yosemiteLast').first().toggleClass("fact2")
         })
 
