@@ -9,15 +9,33 @@
     </audio>
 
     <style type="text/css">
+        .container {display: flex;
+        flex-direction: row;
+        }
+
+
         .image { background-image: url("img/forest.jpeg");
             background-repeat: round;
             width: 500px;
             min-height: 500px;
-            margin-right: 500px;
-            float: right;
+            visibility: inherit;
+
+
+        }
+        dl {
+            display: flex;
+            justify-content: flex-start;
         }
 
-
+        .invisible {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        ul {
+            max-height: 200px;
+            margin-bottom: 0px;
+        }
 
         .fact1 {background-color: yellow}
         .fact2 {background-color: yellow}
@@ -32,22 +50,73 @@
 
     </style>
 </head>
-<body>
 
+<body>
+<main class="container">
 <dl>
-    <dt class="parksClick" id=""><h1>FAQ's about National Parks</h1></dt>
+    <dt class="parksClick" id=""> <button type="button"> <h1>FAQ's about National Parks</h1></button></dt>
+
+<div>
+    <ul class="yosemitePark">
+        <h3><button type="reset">Yosemite</button></h3>
+        <li>its in America</li>
+        <li>its a park</li>
+        <li>its got trees</li>
+        <li id="yosemiteLast">its not in Texas</li>
+
+    </ul>
+</div>
+<div>
+    <ul class="zionPark">
+        <h3><button type="reset">Zion National Park</button></h3>
+        <li>its in America</li>
+        <li>its a park</li>
+        <li>its got trees</li>
+        <li id="zionLast">its not in Texas</li>
+
+    </ul>
+</div>
+<div>
+    <ul class="hotSpringsPark">
+        <h3><button type="reset">Hot Springs National Park</button></h3>
+        <li>its in America</li>
+        <li>its a park</li>
+        <li>its got trees</li>
+        <li id="hotLast">its not in Texas</li>
+
+    </ul>
+</div>
+<div>
+
+    <ul class="grandCanyonPark">
+        <h3><button type="reset">Grand Canyon National Park</button></h3>
+        <li>its in America</li>
+        <li>its a park</li>
+        <li>its got trees</li>
+        <li id="last">its not in Texas</li>
+
+    </ul>
+</div>
+
+
     <section class="image"></section>
-    <dd class="invisible" id="1">They're Fun</dd>
-    <dd class="invisible" id="2">They are Family Friendly</dd>
-    <dd class="invisible" id="3">You can Drink Alcohol Responsibly in Them</dd>
-    <dd class="invisible" id="4">They Are good for the environment</dd>
-    <dd class="invisible" id="5">They help Oxygenate the Atmosphere</dd>
-    <dd class="invisible" id="6">They Protect Wild Animals</dd>
-    <dd class="invisible" id="7">They employ Americans</dd>
-    <dd class="invisible" id="8">They are Beautiful</dd>
-    <dd class="invisible" id="9">They Are Protected by Law</dd>
-    <dd class="invisible" id="10">They are Easily Accessible</dd>
+
+
+
+
+
+<!--    <dd class="invisible" id="1">They're Fun</dd>-->
+<!--    <dd class="invisible" id="2">They are Family Friendly</dd>-->
+<!--    <dd class="invisible" id="3">You can Drink Alcohol Responsibly in Them</dd>-->
+<!--    <dd class="invisible" id="4">They Are good for the environment</dd>-->
+<!--    <dd class="invisible" id="5">They help Oxygenate the Atmosphere</dd>-->
+<!--    <dd class="invisible" id="6">They Protect Wild Animals</dd>-->
+<!--    <dd class="invisible" id="7">They employ Americans</dd>-->
+<!--    <dd class="invisible" id="8">They are Beautiful</dd>-->
+<!--    <dd class="invisible" id="9">They Are Protected by Law</dd>-->
+<!--    <dd class="invisible" id="10">They are Easily Accessible</dd>-->
 </dl>
+
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
     $(document).ready(function(){
@@ -59,9 +128,10 @@
         //**toggle hidden
         //**toggle hidden
         $('.parksClick').click(function(){
-            $('.invisible').toggle("hidden")
-            $('audio#ambientSound')[0].pause()
-            $('.image').toggle("hidden")
+
+            $('audio#ambientSound')[0].play()
+            $('.image').toggle("visible")
+
 
 
         })
@@ -100,7 +170,26 @@
         })
 
 
+
+
+
+        $('.yosemitePark').click(function() {
+            $('#yosemiteLast').first().toggleClass("fact2")
+        })
+
+        $('.zionPark').click(function() {
+            $('#zionLast').first().toggleClass("fact3")
+        })
+
+        $('.hotSpringsPark').click(function() {
+            $('#hotLast').last().toggleClass("fact4")
+        })
+
+        $('.grandCanyonPark').click(function() {
+            $('li').last().toggleClass("fact5")
+        })
     })
 </script>
+</main>
 </body>
 </html>
