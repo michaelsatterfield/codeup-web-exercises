@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="js/jquery.js"></script>
+<main>
+    <div class="button">
+        <button type="submit">Hello There</button>
+        <input type="text" placeholder="tell me something funny">
+    </div>
+
+    <div class="response">
+
+    </div>
+
+
+
+</main>
+<script>
+    $(document).ready(function(){
+
+        $('.button').click(function(){
+            ('.response').html($('input').val()
+            )
+        })
+
+    })
+</script>
+
+</body>
+
+
+</html>

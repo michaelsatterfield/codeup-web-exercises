@@ -8,16 +8,23 @@
         <source src="audio/saltwells-nature-reserve-birdsong-01.wav" type="audio/wav">
     </audio>
 
+
     <style type="text/css">
 
-
-        #ambientSound {
-
+        button {
+            background-color: #0fb784;
         }
 
+
+        .blue {
+            color: blue
+        }
+
+
+
         .container {
-            display: flex;
-            flex-direction: row;
+            /*display: flex;*/
+            /*flex-direction: row;*/
         }
 
 
@@ -56,10 +63,6 @@
         .fact3 {background-color: yellow}
         .fact4 {background-color: yellow}
         .fact5 {background-color: yellow}
-        .fact6 {background-color: yellow}
-        .fact7 {background-color: yellow}
-        .fact8 {background-color: yellow}
-        .fact9 {background-color: yellow}
 
 
     </style>
@@ -69,7 +72,7 @@
 <main class="container">
 
 <div class="newsletter">
-    <h1><button style="height: 100px">Would you like to sign up for our newslettter?</button><span class="hideX"><button>X</button></span></h1>
+    <h2>Would you like to sign up for our newslettter?<button><span class="hideX">X</span></button></h2>
 </div>
 <section class="register">
     <h2 class="regMessage">Register for our Website!<span class="removeReg"><button>x</button></span> </h2>
@@ -78,35 +81,35 @@
 
 
 <dl>
-    <dt class="parksClick" id=""> <button type="button"> <h1>FAQ's about National Parks</h1></button></dt>
+    <dt class="parksClick"  onClick="togglePlay()"> <button type="button"> <h1>FAQ's about National Parks</h1></button></dt>
 
 <div>
-    <h3 class="yosemiteH3"><button type="reset">Yosemite</button></h3>
+    <h3 class="yosemiteH3"><button type="reset">Yosemite National Park</button></h3>
     <ul class="yosemitePark">
-        <li>its in America</li>
-        <li>its a park</li>
-        <li>its got trees</li>
-        <li id="yosemiteLast">its not in Texas</li>
+        <li class ="yosLi">its in America</li>
+        <li class ="yosLi">its a park</li>
+        <li class ="yosLi">its got trees</li>
+        <li class ="yosLi">its not in Texas</li>
 
     </ul>
 </div>
 <div>
     <h3 class="zionH3"><button type="reset">Zion National Park</button></h3>
     <ul class="zionPark">
-        <li>its in America</li>
-        <li>its a park</li>
-        <li>its got trees</li>
-        <li id="zionLast">its not in Texas</li>
+        <li class ="ziId">its in America</li>
+        <li class ="ziId">its a park</li>
+        <li class ="ziId">its got trees</li>
+        <li class ="ziId">its not in Texas</li>
 
     </ul>
 </div>
 <div>
     <h3 class="hotSpringsH3"><button type="reset">Hot Springs National Park</button></h3>
     <ul class="hotSpringsPark">
-        <li>its in America</li>
-        <li>its a park</li>
-        <li>its got trees</li>
-        <li id="hotLast">its not in Texas</li>
+        <li class="hotId">its in America</li>
+        <li class="hotId">its a park</li>
+        <li class="hotId">its got trees</li>
+        <li class="hotId">its not in Texas</li>
 
     </ul>
 </div>
@@ -114,10 +117,10 @@
 
     <h3 class="grandCanyonH3"><button type="reset">Grand Canyon National Park</button></h3>
     <ul class="grandCanyonPark">
-        <li>its in America</li>
-        <li>its a park</li>
-        <li>its got trees</li>
-        <li id="last">its not in Texas</li>
+        <li class = 'grandId'>its in America</li>
+        <li class = 'grandId'>its a park</li>
+        <li class = 'grandId'>its got trees</li>
+        <li class = 'grandId'>its not in Texas</li>
 
     </ul>
 </div>
@@ -134,11 +137,41 @@
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
+
+//    $('.parksClick').toggle(
+//        function () {
+//            document.getElementById('ambientSound').play();
+//        },
+//        function (){
+//            document.getElementById('ambientSound').pause();
+//        }
+//    );
+//    $('.parksClick').click(function(){
+//
+//    var myAudio = document.getElementById("ambientSound");
+//    var isPlaying = false;
+//
+//    function togglePlay() {
+//        isPlaying ? myAudio.pause() : myAudio.play();
+//    };
+//
+//    myAudio.onplaying = function() {
+//        isPlaying = true;
+//    };
+//    myAudio.onpause = function() {
+//        isPlaying = false;
+//    };
+//
+//
+//    })
+
+
     $(document).ready(function(){
 
         //***********************************shows info about parks******************
         $('.yosemiteH3').click(function (){
             $('.yosemitePark').slideToggle();
+
         })
 
         $('.zionH3').click(function (){
@@ -151,6 +184,10 @@
 
         $('.grandCanyonH3').click(function (){
             $('.grandCanyonPark').slideToggle();
+        })
+
+        $('li').click(function(){
+            $(this).parent().children('li').first().addClass('blue');
         })
 
 
@@ -172,13 +209,26 @@
 
         //**toggle hidden
         //**toggle hidden
+
+
+
+
         $('.parksClick').click(function(){
 
-            $('audio#ambientSound')[0].play()
-            // $('audio#ambientSound')[0].pause()
+
+            $('#ambientSound').trigger('play')
+
+
             $('.image').toggle("visible")
 
         })
+
+
+
+
+
+
+
 
         $('#1').click(function(){
             $('#1').toggleClass("fact1")
@@ -194,19 +244,19 @@
 
         $('.yosemitePark').click(function() {
 
-            $('#yosemiteLast').first().toggleClass("fact2")
+            $('.yosLi').last().toggleClass("fact2")
         })
 
         $('.zionPark').click(function() {
-            $('#zionLast').first().toggleClass("fact3")
+            $('.ziId').last().toggleClass("fact3")
         })
 
         $('.hotSpringsPark').click(function() {
-            $('#hotLast').last().toggleClass("fact4")
+            $('.hotId').last().toggleClass("fact4")
         })
 
         $('.grandCanyonPark').click(function() {
-            $('li').last().toggleClass("fact5")
+            $('.grandId').last().toggleClass("fact5")
         })
     })
 </script>
