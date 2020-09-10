@@ -5,7 +5,28 @@
     <title>Title</title>
 </head>
 <body>
+<div id="posts">
+
+</div>
+
+
 <script src="js/jquery.js"></script>
+<script>
+    (() => {
+    "use strict";
+    // TODO: Create an AJAX GET request for the file under data/inventory.json
+    $().ready(function() {
+
+
+        $.ajax('data/inventory.json').done(function (data, status, jqXhr) {
+            // alert('AJAX success')
+            console.log(data)
+
+
+        })
+    })
+     })();
+</script>
 
 </body>
 </html>
