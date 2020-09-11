@@ -42,7 +42,7 @@
 <br>
 <section class="location_lookup">Place
     <input class="place">
-    <button type="button" class="btn btn-primary">Find</button>
+    <button id="lookUpCity" type="button" class="btn btn-primary">Find</button>
 </section>
 <br>
 
@@ -157,14 +157,18 @@
 
 
         // let location = "San Antonio, US";
-    var API_call = "https://api.openweathermap.org/data/2.5/forecast?lat=29.4241&lon=-98.4936&" +
-        "exclude=minutely,hourly&units=imperial&appid=6ee03567f83cd1474cc981c6e28e5ee4";
+    var API_call = "https://api.openweathermap.org/data/2.5/forecast";
+    let latitude = 29.4241;
+    let longitude = -98.4936;
 
 
 
     $.get(API_call, {
         APPID: WEATHER_APPID,
-
+        lat: latitude,
+        lon: longitude,
+        exclude: "minutely,hourly",
+        units: "imperial"
 
 
     }).done(function(data){
@@ -295,7 +299,9 @@
             "src","http://openweathermap.org/img/w/"+data.list[32].weather[0].icon +".png"
         )
 
-
+        $('#lookUpCity').click(function(){
+            $()
+        })
 
 
 
