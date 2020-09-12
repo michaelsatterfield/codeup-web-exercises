@@ -2,8 +2,11 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
     <title>Weather Map</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
 </head>
 <style>
     #navBar {
@@ -29,6 +32,15 @@
         display: block;
     }
 
+    #map {
+        justify-content: center;
+        min-height: 60em;
+        width: 90%;
+        height: 40%;
+        margin-left: 5em;
+
+    }
+
 
 
 </style>
@@ -40,10 +52,10 @@
     <a class="nav-item" href="" >WeatherApp</a>
 </nav>
 <br>
-<section class="location_lookup">Place
-    <input class="place">
-    <button id="lookUpCity" type="button" class="btn btn-primary">Find</button>
-</section>
+<!--<section class="location_lookup">Place-->
+<!--    <input class="place">-->
+<!--    <button id="lookUpCity" type="button" class="btn btn-primary">Find</button>-->
+<!--</section>-->
 <br>
 
 
@@ -62,10 +74,12 @@
 
 <!--****************************five day forecast*************-->
 
-<div class="card-group">
-    <div class="card">
 
-        <div class="card-body">
+
+<div class="  card-group justify-content-around">
+    <div class=" col-lg-2 col-sm-12 ">
+
+        <div class="card-body ">
             <h5 class="card-title" id="date1"></h5>
             <p class="card-text" id="highLow1"></p>
             <img id='image1'>
@@ -75,7 +89,7 @@
             <p class="card-text" id="wind1"></p>
         </div>
     </div>
-    <div class="card">
+    <div class="col-lg-2 col-sm-12">
 
 
 
@@ -89,7 +103,7 @@
             <p class="card-text" id="wind2"></p>
         </div>
     </div>
-    <div class="card">
+    <div class="col-lg-2 col-sm-12">
 
         <div class="card-body">
             <h5 class="card-title" id="date3"></h5>
@@ -102,7 +116,7 @@
             <p class="card-text" id="wind3"></p>
         </div>
     </div>
-    <div class="card">
+    <div class="col-lg-2 col-sm-12">
 
         <div class="card-body">
             <h5 class="card-title" id="date4"></h5>
@@ -114,7 +128,7 @@
             <p class="card-text" id="wind4"></p>
         </div>
     </div>
-    <div class="card">
+    <div class="col-lg-2 col-sm-12">
 
         <div class="card-body">
             <h5 class="card-title"id="date5"></h5>
@@ -125,14 +139,21 @@
             <p class="card-text" id="humidity5"></p>
             <p class="card-text" id="wind5"></p>
         </div>
+
+
+
     </div>
-</div>
-
-<div id="forecastInfo">
 
 </div>
+<div class="d-flex flex-column image-fluid" id="map"></div>
 
 
+
+</div>
+
+
+
+<div class="mapBox"  id="map"></div>
 
 <!--</main>-->
 
@@ -154,13 +175,48 @@
 
 
     $(document).ready(function(){
+        mapboxgl.accessToken = MAPBOX_TOKEN;
+
+
+
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [-79.4512, 43.6568],
+            zoom: 13
+        });
+
+        var geocoder = new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken,
+            marker: {
+                draggable: true,
+                color: 'orange'
+            },
+            mapboxgl: mapboxgl
+        });
+
+
+        map.addControl(geocoder);
+
+        let searchLong = ""
+        let searchLat = ""
+        geocoder.on('results', function(results) {
+            console.log(results);
+            searchLong += results.request.query.proximity[0]
+            searchLat += results.request.query.proximity[1]
+
+
+        })
+
 
 
         // let location = "San Antonio, US";
     var API_call = "https://api.openweathermap.org/data/2.5/forecast";
-    let latitude = 29.4241;
-    let longitude = -98.4936;
 
+
+        let latitude = 29.424349;
+
+        let longitude = -98.491142;
 
 
     $.get(API_call, {
@@ -308,7 +364,7 @@
 
 
         $(document).ready(function() {
-            $('.card-text').hover(
+            $('.mabBox').hover(
                 function() {
                     $(this).css('background-color', '#FF0');
                 },
@@ -316,12 +372,17 @@
                     $(this).css('background-color', '#FFF');
                 }
             );
+            $('')
+
+
+
         });
 
 
 
     });
     })
+
 
     })(jQuery);
 
@@ -330,6 +391,33 @@
 
 
 </script>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
+<link
+        rel="stylesheet"
+        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css"
+        type="text/css"
+/>
+<!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+<style>
+    #geocoder-container > div {
+        min-width: 50%;
+        margin-left: 25%;
+    }
+</style>
+<div id="map"></div>
+
+<script>
+
+
+</script>
+
+
+
+
+
+
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
