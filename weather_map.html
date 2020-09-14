@@ -173,215 +173,232 @@
     (function($) {
 
 
-
-    $(document).ready(function(){
-        mapboxgl.accessToken = MAPBOX_TOKEN;
-
+        $(document).ready(function () {
+            mapboxgl.accessToken = MAPBOX_TOKEN;
 
 
-        var map = new mapboxgl.Map({
-            container: 'map',
-            style: 'mapbox://styles/mapbox/streets-v11',
-            center: [-79.4512, 43.6568],
-            zoom: 13
-        });
-
-        var geocoder = new MapboxGeocoder({
-            accessToken: mapboxgl.accessToken,
-            marker: {
-                draggable: true,
-                color: 'orange'
-            },
-            mapboxgl: mapboxgl
-        });
-
-
-        map.addControl(geocoder);
-
-        let searchLong = ""
-        let searchLat = ""
-        geocoder.on('results', function(results) {
-            console.log(results);
-            searchLong += results.request.query.proximity[0]
-            searchLat += results.request.query.proximity[1]
-
-
-        })
+            var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v11',
+                center: [-79.4512, 43.6568],
+                zoom: 13
+            });
+            let marker = new mapboxgl.Marker()
+                .setLngLat([-98.4916, 29.4241])
+                .addTo(map)
+                .setDraggable(true)
 
 
 
-        // let location = "San Antonio, US";
-    var API_call = "https://api.openweathermap.org/data/2.5/forecast";
+            var geocoder = new MapboxGeocoder({
+                accessToken: mapboxgl.accessToken,
+                marker: {
+                    draggable: true,
+                    color: 'orange'
+                },
+                mapboxgl: mapboxgl
+            });
+            console.log(geocoder)
 
-
-        let latitude = 29.424349;
-
-        let longitude = -98.491142;
-
-
-    $.get(API_call, {
-        APPID: WEATHER_APPID,
-        lat: latitude,
-        lon: longitude,
-        exclude: "minutely,hourly",
-        units: "imperial"
-
-
-    }).done(function(data){
-        console.log(data)
-
-
-        $('#cityName').html(
-            data.city.name
-        )
+            map.addControl(geocoder);
 
 
 
 
-        $('#temp1').html(
-            "The Temperature is " + data.list[0].main.temp.toFixed(1) +'°F'
-        )
+            let searchLong = 0
+            let searchLat = 0
 
-        $('#description0').html(
-            "The weather is " + data.list[0].weather[0].description
-        )
+            geocoder.on('results', function (results) {
+                console.log(results);
+                searchLong = results.features[0].center[0]
+                searchLat = results.features[0].center[1]
+                // searchLat = results.request.query.proximity[1]
+                console.log(searchLat)
+                console.log(searchLong)
+            })
+
+
+
+
+      var API_call = "https://api.openweathermap.org/data/2.5/forecast";
+
+
+      // let latitude = 29.424349;
+      //
+      // let longitude = -98.491142;
+
+      function onDragEnd(lon, lat) {
+          let lngLat = marker.getLngLat();
+          $.get(API_call, {
+              APPID: WEATHER_APPID,
+              // lat: searchLat,
+              // lon: searchLong,
+              lat: lngLat.lat,
+              lon: lngLat.lng,
+              exclude: "minutely,hourly",
+              units: "imperial"
+
+
+          }).done(function (data) {
+              console.log(data)
+              //************draggable code********
+              // map.flyTo({center: [searchLong, searchLat]})
+              map.flyTo({center: [lngLat.lng, lngLat.lat]})
+              map.set
+
+              $('#cityName').html(
+                  data.city.name
+              )
+
+
+              $('#temp1').html(
+                  "The Temperature is " + data.list[0].main.temp.toFixed(1) + '°F'
+              )
+
+              $('#description0').html(
+                  "The weather is " + data.list[0].weather[0].description
+              )
 
 //*************************dates********************************
 
-        $('#date1').html(
-            "Date: " + data.list[0].dt_txt.substring(0, data.list[0].dt_txt.indexOf(' '))
-        )
-        $('#date2').html(
-            "Date: " + data.list[8].dt_txt.substring(0, data.list[0].dt_txt.indexOf(' '))
-        )
-        $('#date3').html(
-            "Date: " + data.list[16].dt_txt.substring(0, data.list[0].dt_txt.indexOf(' '))
-        )
-        $('#date4').html(
-            "Date: " + data.list[24].dt_txt.substring(0, data.list[0].dt_txt.indexOf(' '))
-        )
-        $('#date5').html(
-            "Date: " + data.list[32].dt_txt.substring(0, data.list[0].dt_txt.indexOf(' '))
-        )
+              $('#date1').html(
+                  "Date: " + data.list[0].dt_txt.substring(0, data.list[0].dt_txt.indexOf(' '))
+              )
+              $('#date2').html(
+                  "Date: " + data.list[8].dt_txt.substring(0, data.list[0].dt_txt.indexOf(' '))
+              )
+              $('#date3').html(
+                  "Date: " + data.list[16].dt_txt.substring(0, data.list[0].dt_txt.indexOf(' '))
+              )
+              $('#date4').html(
+                  "Date: " + data.list[24].dt_txt.substring(0, data.list[0].dt_txt.indexOf(' '))
+              )
+              $('#date5').html(
+                  "Date: " + data.list[32].dt_txt.substring(0, data.list[0].dt_txt.indexOf(' '))
+              )
 
 
 //*********************high/low temp**********************************
 
-        $('#highLow1').html(
-            data.list[0].main.temp_min.toFixed(1) +'°F' + '/' + data.list[0].main.temp_max.toFixed(1) +'°F'
-        )
-        $('#highLow2').html(
-            data.list[8].main.temp_min.toFixed(1) +'°F' + '/' + data.list[0].main.temp_max.toFixed(1) +'°F'
-        )
-        $('#highLow3').html(
-            data.list[16].main.temp_min.toFixed(1) +'°F' + '/' + data.list[0].main.temp_max.toFixed(1) +'°F'
-        )
-        $('#highLow4').html(
-            data.list[24].main.temp_min.toFixed(1) +'°F' + '/' + data.list[0].main.temp_max.toFixed(1) +'°F'
-        )
-        $('#highLow5').html(
-            data.list[32].main.temp_min.toFixed(1) +'°F' + '/' + data.list[0].main.temp_max.toFixed(1) +'°F'
-        )
+              $('#highLow1').html(
+                  data.list[0].main.temp_min.toFixed(1) + '°F' + '/' + data.list[0].main.temp_max.toFixed(1) + '°F'
+              )
+              $('#highLow2').html(
+                  data.list[8].main.temp_min.toFixed(1) + '°F' + '/' + data.list[0].main.temp_max.toFixed(1) + '°F'
+              )
+              $('#highLow3').html(
+                  data.list[16].main.temp_min.toFixed(1) + '°F' + '/' + data.list[0].main.temp_max.toFixed(1) + '°F'
+              )
+              $('#highLow4').html(
+                  data.list[24].main.temp_min.toFixed(1) + '°F' + '/' + data.list[0].main.temp_max.toFixed(1) + '°F'
+              )
+              $('#highLow5').html(
+                  data.list[32].main.temp_min.toFixed(1) + '°F' + '/' + data.list[0].main.temp_max.toFixed(1) + '°F'
+              )
 
 
 //******************description*******************************************
 
-        $('#description1').html(
-            "Condition : " + data.list[0].weather[0].description
-        )
-        $('#description2').html(
-            "Condition : " + data.list[8].weather[0].description
-        )
-        $('#description3').html(
-            "Condition : " + data.list[16].weather[0].description
-        )
-        $('#description4').html(
-            "Condition : " + data.list[24].weather[0].description
-        )
-        $('#description5').html(
-            "Condition : " + data.list[32].weather[0].description
-        )
+              $('#description1').html(
+                  "Condition : " + data.list[0].weather[0].description
+              )
+              $('#description2').html(
+                  "Condition : " + data.list[8].weather[0].description
+              )
+              $('#description3').html(
+                  "Condition : " + data.list[16].weather[0].description
+              )
+              $('#description4').html(
+                  "Condition : " + data.list[24].weather[0].description
+              )
+              $('#description5').html(
+                  "Condition : " + data.list[32].weather[0].description
+              )
 //*******************humidity**********************
 
-        $('#humidity1').html(
-            "Humidity : " + data.list[0].main.humidity + '%'
-        )
-        $('#humidity2').html(
-            "Humidity : " + data.list[8].main.humidity + '%'
-        )
-        $('#humidity3').html(
-            "Humidity : " + data.list[16].main.humidity + '%'
-        )
-        $('#humidity4').html(
-            "Humidity : " + data.list[24].main.humidity + '%'
-        )
-        $('#humidity5').html(
-            "Humidity : " + data.list[32].main.humidity + '%'
-        )
+              $('#humidity1').html(
+                  "Humidity : " + data.list[0].main.humidity + '%'
+              )
+              $('#humidity2').html(
+                  "Humidity : " + data.list[8].main.humidity + '%'
+              )
+              $('#humidity3').html(
+                  "Humidity : " + data.list[16].main.humidity + '%'
+              )
+              $('#humidity4').html(
+                  "Humidity : " + data.list[24].main.humidity + '%'
+              )
+              $('#humidity5').html(
+                  "Humidity : " + data.list[32].main.humidity + '%'
+              )
 
 //*******************Wind**********************
 
-        $('#wind1').html(
-            "Wind Speed: " + data.list[0].wind.speed + 'MPH'
-        )
-        $('#wind2').html(
-            "Wind Speed: " + data.list[8].wind.speed + 'MPH'
-        )
-        $('#wind3').html(
-            "Wind Speed: " + data.list[16].wind.speed + 'MPH'
-        )
-        $('#wind4').html(
-            "Wind Speed: " + data.list[24].wind.speed + 'MPH'
-        )
-        $('#wind5').html(
-            "Wind Speed: " + data.list[32].wind.speed + 'MPH'
-        )
+              $('#wind1').html(
+                  "Wind Speed: " + data.list[0].wind.speed + 'MPH'
+              )
+              $('#wind2').html(
+                  "Wind Speed: " + data.list[8].wind.speed + 'MPH'
+              )
+              $('#wind3').html(
+                  "Wind Speed: " + data.list[16].wind.speed + 'MPH'
+              )
+              $('#wind4').html(
+                  "Wind Speed: " + data.list[24].wind.speed + 'MPH'
+              )
+              $('#wind5').html(
+                  "Wind Speed: " + data.list[32].wind.speed + 'MPH'
+              )
 
-        //*************image icon************
+              //*************image icon************
 
-        $('#image1').attr(
-            "src","http://openweathermap.org/img/w/"+data.list[0].weather[0].icon +".png"
-        )
-        $('#image2').attr(
-            "src","http://openweathermap.org/img/w/"+data.list[8].weather[0].icon +".png"
-        )
-        $('#image3').attr(
-            "src","http://openweathermap.org/img/w/"+data.list[16].weather[0].icon +".png"
-        )
-        $('#image4').attr(
-            "src","http://openweathermap.org/img/w/"+data.list[24].weather[0].icon +".png"
-        )
-        $('#image5').attr(
-            "src","http://openweathermap.org/img/w/"+data.list[32].weather[0].icon +".png"
-        )
+              $('#image1').attr(
+                  "src", "http://openweathermap.org/img/w/" + data.list[0].weather[0].icon + ".png"
+              )
+              $('#image2').attr(
+                  "src", "http://openweathermap.org/img/w/" + data.list[8].weather[0].icon + ".png"
+              )
+              $('#image3').attr(
+                  "src", "http://openweathermap.org/img/w/" + data.list[16].weather[0].icon + ".png"
+              )
+              $('#image4').attr(
+                  "src", "http://openweathermap.org/img/w/" + data.list[24].weather[0].icon + ".png"
+              )
+              $('#image5').attr(
+                  "src", "http://openweathermap.org/img/w/" + data.list[32].weather[0].icon + ".png"
+              )
 
-        $('#lookUpCity').click(function(){
-            $()
-        })
-
-
+              $('#lookUpCity').click(function () {
+                  $()
+              })
 
 
-
-        $(document).ready(function() {
-            $('.mabBox').hover(
-                function() {
-                    $(this).css('background-color', '#FF0');
-                },
-                function() {
-                    $(this).css('background-color', '#FFF');
-                }
-            );
-            $('')
-
+              $(document).ready(function () {
+                  $('.mabBox').hover(
+                      function () {
+                          $(this).css('background-color', '#FF0');
+                      },
+                      function () {
+                          $(this).css('background-color', '#FFF');
+                      }
+                  );
+                  $('')
 
 
-        });
+              });
 
 
+          });
 
-    });
-    })
+
+      }
+
+      map.on('load', onDragEnd)
+      marker.on('dragend', onDragEnd);
+  }
+
+
+    )
 
 
     })(jQuery);
