@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<main>
+    <div>bob</div>
+    <div>STEVE</div>
+    <div>sAlLY</div>
+</main>
+
+<!--*******Upper Case Function!!!!!!!!!!!!!!!!!!!!!-->
+
+<script>
+    "use strict";
+    (function() {
+    var lastName = {lName: "smith"};
+
+    var firstName = document.getElementsByTagName("div")
+
+    console.log(firstName.item(2))
+
+        function setCase(str) {
+            return str[0].toUpperCase() + str.substring(1).toLowerCase();
+        }
+        for (var i = 0; i < firstName.length; i++){
+       firstName[i].innerText = setCase(firstName[i].innerText) + " " +  setCase (lastName.lName)
+    }
+
+
+
+
+    })();
+</script>
+</body>
+</html>

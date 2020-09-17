@@ -52,10 +52,7 @@
     <a class="nav-item" href="" >WeatherApp</a>
 </nav>
 <br>
-<!--<section class="location_lookup">Place-->
-<!--    <input class="place">-->
-<!--    <button id="lookUpCity" type="button" class="btn btn-primary">Find</button>-->
-<!--</section>-->
+
 <br>
 
 
@@ -177,12 +174,38 @@
             mapboxgl.accessToken = MAPBOX_TOKEN;
 
 
-            var map = new mapboxgl.Map({
-                container: 'map',
-                style: 'mapbox://styles/mapbox/streets-v11',
-                center: [-79.4512, 43.6568],
-                zoom: 13
-            });
+                var tileset = 'mapbox.streets';
+                var map = new mapboxgl.Map({
+                    container: 'map',
+                    style: 'mapbox://styles/mapbox/streets-v8',
+                    center: [-95.7, 37.1], // starting position
+                    zoom: 3 // starting zoom
+                });
+
+                map.on('load', function () {
+
+                    map.addSource('aerisweather-radar', {
+                        "type": 'raster',
+                        "tiles": [
+                            'https://maps1.aerisapi.com/radar/{z}/{x}/{y}/current.png',
+                            'https://maps2.aerisapi.com/radar/{z}/{x}/{y}/current.png',
+                            'https://maps3.aerisapi.com/radar/{z}/{x}/{y}/current.png',
+                            'https://maps4.aerisapi.com/radar/{z}/{x}/{y}/current.png'
+                        ],
+                        "clientId": Aeris_id,
+                        "clientKey": Aeris_Key,
+                        "tileSize": 256,
+                        "attribution": "<a href='https://www.aerisweather.com/'>AerisWeather</a>"
+
+                    });
+                    map.addLayer({
+                        "id": "radar-tiles",
+                        "type": "raster",
+                        "source": "aerisweather-radar",
+                        "minzoom": 0,
+                        "maxzoom":22
+                    });
+                });
             let marker = new mapboxgl.Marker()
                 .setLngLat([-98.4916, 29.4241])
                 .addTo(map)
@@ -245,6 +268,7 @@
               // map.flyTo({center: [searchLong, searchLat]})
               map.flyTo({center: [lngLat.lng, lngLat.lat]})
               map.set
+
 
               $('#cityName').html(
                   data.city.name
@@ -395,6 +419,7 @@
 
       map.on('load', onDragEnd)
       marker.on('dragend', onDragEnd);
+
   }
 
 

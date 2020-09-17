@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title></title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.css' rel='stylesheet' />\
+    <script src="js/keys.js"></script>
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+
+<div id='map'></div>
+<script>
+    mapboxgl.accessToken = MAPBOX_TOKEN;
+    var tileset = 'mapbox.streets';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v8',
+        center: [-95.7, 37.1], // starting position
+        zoom: 3 // starting zoom
+    });
+
+    map.on('load', function () {
+        map.addSource('aerisweather-radar', {
+            "type": 'raster',
+            "tiles": [
+                'https://maps1.aerisapi.com/[AtJ1eJm662H8QO8mPnsAY]_[QYgzc7xDmZ9cIeR7pz7oqdZq9P8u9cbvjLFOP0ed]/radar/{z}/{x}/{y}/current.png',
+                'https://maps2.aerisapi.com/[clientId]_[clientKey]/radar/{z}/{x}/{y}/current.png',
+                'https://maps3.aerisapi.com/[clientId]_[clientKey]/radar/{z}/{x}/{y}/current.png',
+                'https://maps4.aerisapi.com/[clientId]_[clientKey]/radar/{z}/{x}/{y}/current.png'
+            ],
+
+            "tileSize": 256,
+            "attribution": "<a href='https://www.aerisweather.com/'>AerisWeather</a>"
+        });
+        map.addLayer({
+            "id": "radar-tiles",
+            "type": "raster",
+            "source": "aerisweather-radar",
+            "minzoom": 0,
+            "maxzoom":22
+        });
+    });
+</script>
+
+</body>
+</html>

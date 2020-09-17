@@ -5,35 +5,55 @@
     <title>Title</title>
 </head>
 <body>
-<h1>This is a demo page</h1>
-<button type="button" onClick="reloadFromCache()">Refresh!</button>
-<button type="button" onClick="reloadFromServer()">Refresh!</button>
-<h2>Hi</h2>
+<h1 class="change">This is a demo page</h1>
+<input id="input1">
+<button id='button' >Refresh!</button>
+<button type="button" >Refresh!</button>
+<h2 id="h2">Hi</h2>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous">
 
 </script>
 
 <script>
 
-//     //************************************fizzbuzz***************************************
+    //************************************fizzbuzz***************************************
+    // "use strict";
+
+
+
+        // INSERT JAVASCRIPT CODE SAMPLE HERE
+
+
+
 //     function fizzbuzz(num) {
-//         for(var i=1; i <= num; i++) {
+//         $(document).ready(function() {
+//             $("#button").click(function(){
+//          let num = $('#input1').val();
+//          for(var i=1; i <= num; i++) {
 //             if(i % 15 === 0) {
-//                 console.log('fizzbuzz');
+//                 $('#h2').append("fizzbuzz<br>")
 //             } else if (i % 3 === 0){
-//                 console.log('fizz')
+//                 $('#h2').append("fizz<br>")
 //             } else if (i % 5 === 0) {
-//                 console.log("buzz")
+//                 $('#h2').append("buzz<br>")
 //             } else {
+//                 $('#h2').append(i + "<br>")
 //                 console.log(i);
 //             }
 //             i++;
 //         }
-//     }
-//     fizzbuzz(50)
+//         });
+//             fizzbuzz(num)
+//     })
 //
-//
-//
+// }
+
+
+
+
+
+
+
 //     //************************************GET AVERAGE************************************
 //
 //     let grades = [90, 80, 50, 100]
@@ -83,83 +103,85 @@
 //
 //     })()
 //********************************search function*******
-var list = [
-    {
-        "title": "Hammer",
-        "quantity": 25,
-        "categories": [
-            "tool"
-        ],
-        "price": 20
-    }, {
-    "title": "Drill",
-    "quantity": 5,
-    "categories": [
-        "tool",
-        "powered"
-    ],
-    "price": 100
-}, {
-    "title": "Mower",
-    "quantity": 5,
-    "categories": [
-        "tool",
-        "gas",
-        "outdoor"
-    ],
-    "price": 200
-}, {
-    "title": "Screwdriver",
-    "quantity": 25,
-    "categories": [
-        "tool"
-    ],
-    "price": 10
-},    {
-    "title": "Computer",
-    "quantity": 2,
-    "categories": [
-        "tool"
-    ],
-    "price": 699
-}, {
-    "title": "Pencil",
-    "quantity": 500,
-    "categories": [
-        "tool"
-    ],
-    "price": 1
-}, {
-    "title": "Tesla",
-    "quantity": 5,
-    "categories": [
-        "electric",
-        "car",
-        "outdoor"
-    ],
-    "price": 50000
-}, {
-    "title": "Blue Jeans",
-    "quantity": 27,
-    "categories": [
-        "clothing"
-    ],
-    "price": 27
-}
-]
+// var list = [
+//     {
+//         "title": "Hammer",
+//         "quantity": 25,
+//         "categories": [
+//             "tool"
+//         ],
+//         "price": 20
+//     }, {
+//     "title": "Drill",
+//     "quantity": 5,
+//     "categories": [
+//         "tool",
+//         "powered"
+//     ],
+//     "price": 100
+// }, {
+//     "title": "Mower",
+//     "quantity": 5,
+//     "categories": [
+//         "tool",
+//         "gas",
+//         "outdoor"
+//     ],
+//     "price": 200
+// }, {
+//     "title": "Screwdriver",
+//     "quantity": 25,
+//     "categories": [
+//         "tool"
+//     ],
+//     "price": 10
+// },    {
+//     "title": "Computer",
+//     "quantity": 2,
+//     "categories": [
+//         "tool"
+//     ],
+//     "price": 699
+// }, {
+//     "title": "Pencil",
+//     "quantity": 500,
+//     "categories": [
+//         "tool"
+//     ],
+//     "price": 1
+// }, {
+//     "title": "Tesla",
+//     "quantity": 5,
+//     "categories": [
+//         "electric",
+//         "car",
+//         "outdoor"
+//     ],
+//     "price": 50000
+// }, {
+//     "title": "Blue Jeans",
+//     "quantity": 27,
+//     "categories": [
+//         "clothing"
+//     ],
+//     "price": 27
+// }
+// ]
 
+//
+// function searchPrice(){
+//     var greatest = 0
+//     for(let i = 0; i<=list.length; i++){
+//         if (list[i].price > greatest.price)
+//             greatest = list[i]
+//
+//
+//     }
+//     return greatest
+// }
+// console.log(searchPrice(list))
+//
 
-function searchPrice(){
-    var greatest = 0
-    for(let i = 0; i<=list.length; i++){
-        if (list[i].price > greatest.price)
-            greatest = list[i]
-
-
-    }
-    return greatest
-}
-console.log(searchPrice(list))
 
 
 
