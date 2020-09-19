@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map Filter Reduce Mini Exercise</title>
+</head>
+<body>
+
+<script>
+    "use strict";
+
+    // TODO: Given the following array, complete the todos...
+
+    const dogs = [
+        {
+            name: 'bubbles',
+            age: 10,
+            isTrained: false
+        },
+        {
+            name: 'lexie',
+            age: 3,
+            isTrained: true
+        },
+        {
+            name: 'doggy',
+            age: 5,
+            isTrained: false
+        }
+    ];
+
+
+
+
+
+
+
+    let names = function(dog) {
+        dogs.name
+        return names
+    }
+
+    //
+    // const dogNames = dogs.map(names)
+    // console.log(dogNames)
+
+
+    // TODO: using map, create a new array of dog names from the dogs array
+    // TODO: using map, create a new array of dog ages from the dogs array
+    let newAgeArr = dogs.map(dogAge => (dogAge.name + " " + dogAge.age))
+    console.log(newAgeArr)
+
+    // TODO: using map, create a new array of dog objects from the dogs array that only have name and age property values
+    let dogsNameAge = dogs.map(dogWith =>(dogWith.isTrained))
+    console.log(dogsNameAge)
+
+    let fruits2 = ['apple', 'banana', 'orange', 'guava']
+
+    // let fruitsCopy = fruits2.map(function(fruit){
+    //     return fruit
+    // })
+    // console.log(fruitsCopy)
+    //****or*****
+
+    let fruitsCopy = fruits2.map(fruit => fruit)
+    console.log(fruitsCopy)
+
+
+
+
+
+
+
+
+
+    // const dogNames = dogs.map(dog => dog.name) *****right answer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   //  // TODO: Given the following array, complete the todos...
+   //
+   //  const dogs = [
+   //      {
+   //          name: 'bubbles',
+   //          age: 10,
+   //          isTrained: false
+   //      },
+   //      {
+   //          name: 'lexie',
+   //          age: 3,
+   //          isTrained: true
+   //      },
+   //      {
+   //          name: 'doggy',
+   //          age: 5,
+   //          isTrained: false
+   //      }
+   //  ];
+   //
+   //  // TODO: using filter, create a new array containing only dogs younger than 10 years old
+   //
+   //  const younger = dogs.filter(dog => dog.age < 10)
+   //  console.log(younger)
+   //
+   //  // TODO: using filter, create a new array containing only dogs named 'lexie'
+   //  const lexieDogs = dog.filter(dog => dog.name === 'lexie');
+   //  console.log(lexieDogs)
+   //  // TODO: using filter, create a new array containing only dogs that are trained and younger than 10
+   // const youngTDogs = dogs.filter(dog => dog.isTrained && dog.age < 10)
+   //  console.log(youngTDogs)
+</script>
+
+</body>
+</html>

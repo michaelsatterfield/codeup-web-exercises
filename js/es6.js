@@ -89,8 +89,8 @@ for(let developer of developers){
   console.log(developer)
 
   // TODO: rewrite the assignment below to use template strings
-  // list += '<li>' + developer + '</li>';
   list += `<li> ${developer} </li>`
+  // list += '<li>' + developer + '</li>';
 };
 list +=`</ul>`;
 document.write(list)

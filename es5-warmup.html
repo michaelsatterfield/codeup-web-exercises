@@ -7,16 +7,13 @@
 <body>
 
 
-    <div>bob</div>
-    <div>STEVE</div>
-    <div>sAlLY</div>
 </main>
 
 <!--*******Upper Case Function!!!!!!!!!!!!!!!!!!!!!-->
 
-<script src="js/es6.js">
-    "use strict";
-    (function() {
+<script src="js/map-filter-reduce.js">
+    // "use strict";
+    // (function() {
     // var lastName = {lName: "smith"};
     //
     // var firstName = document.getElementsByTagName("div")
@@ -34,18 +31,18 @@
         //***************shorter ES6 Version of the same uppercase Code!*************************************
 
 
-
-        { // use of block scope instead of IIFE
-            const fullName = {lName: "smith"}; // use of const vs. var
-            const divs = document.querySelectorAll("div"); // jQuery like syntax
-            const convertCase = str => str[0].toUpperCase() + str.substring(1).toLowerCase(); // arrow functions
-            const convertNodes = ({ lName }, nodes) => { // object destructuring
-                for (let node of nodes) { // for...of loop
-                    node.innerText = `${convertCase(node.innerText)} ${convertCase(lName)}`; // template strings
-                }
-            }
-            convertNodes(fullName, divs);
-        }
+        //
+        // { // use of block scope instead of IIFE
+        //     const fullName = {lName: "smith"}; // use of const vs. var
+        //     const divs = document.querySelectorAll("div"); // jQuery like syntax
+        //     const convertCase = str => str[0].toUpperCase() + str.substring(1).toLowerCase(); // arrow functions
+        //     const convertNodes = ({ lName }, nodes) => { // object destructuring
+        //         for (let node of nodes) { // for...of loop
+        //             node.innerText = `${convertCase(node.innerText)} ${convertCase(lName)}`; // template strings
+        //         }
+        //     }
+        //     convertNodes(fullName, divs);
+        // }
 
 
 
