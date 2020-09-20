@@ -39,7 +39,7 @@ const name = 'michael';
 const email = 'michael.f.satterfield@gmail.com';
 const languages = ['html', 'css', 'javascript'];
 
-// console.log(const name = 'joe');
+
 
 
 // TODO: rewrite the object literal using object property shorthand
