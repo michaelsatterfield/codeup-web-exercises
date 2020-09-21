@@ -1,7 +1,12 @@
-fetch("https://api.github.com/users/michaelsatterfield/events", {headers: {'Authorization': 'fcf2b4aefa29f53babd0cd2e9072086527745e8a'}})
+fetch("https://api.github.com/users/michaelsatterfield/events", {headers: {'Authorization': 'github_API_Token'}})
     .then (result => result.json())
-    .then (data => console.log(data[0].created_at))
+    // .then (data => console.log(data))
+    .then (data => console.log((data[0].created_at),(data)))
+    //then(events => events.filter(event => event.type === "PushEvents"))
     .catch(error => console.log(error))
+
+
+
 
 function wait(num){
     return new Promise((resolve,reject)=> {
@@ -16,9 +21,9 @@ function wait(num){
         }, num);
     })
 }
-// console.log(wait(400))
+console.log(wait(400))
 
 
 
-wait(3000).then((num) => console.log(`You\'ll see this after ${num} seconds`));
-wait(2000).then((num) => console.log(`You\'ll see this after ${num} seconds`));
+wait(Math.floor(Math.random()*10000)).then((num) => console.log(` You\'ll see this after ${num/1000} seconds`));
+wait(2000).then((num) => console.log(` You\'ll see this after ${num/1000} seconds` ));
