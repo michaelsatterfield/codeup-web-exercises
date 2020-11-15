@@ -5,8 +5,38 @@
 </head>
 <body>
 	<script>
-		for (var i = 100; i >= 5; i = i - 5) {
-			console.log(i)
+		// for (var i = 100; i >= 5; i = i - 5) {
+		// 	console.log(i)
+		// };
+		let num = 100
+		for (let i =0; i<num; i++){
+			if(i %3 === 0 ){
+				console.log("hello there")
+
+			}
+		}
+
+		function fizzbuzz(num) {
+			$(document).ready(function() {
+				$("#button").click(function(){
+					let num = $('#input1').val();
+					       for(var i=1; i <= num; i++) {
+		            if(i % 15 === 0) {
+		                $('#h2').append("fizzbuzz<br>")
+		            } else if (i % 3 === 0){
+		                $('#h2').append("fizz<br>")
+		            } else if (i % 5 === 0) {
+		                $('#h2').append("buzz<br>")
+		            } else {
+		                $('#h2').append(i + "<br>")
+		                console.log(i);
+		            }
+		            i++;
+		        }
+		        });
+		            fizzbuzz(num)
+		    })
+
 		}
 
 	</script>
