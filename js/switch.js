@@ -7,6 +7,7 @@
 var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
 var color = colors[Math.floor(Math.random()*colors.length)];
 
+
 switch (color) {
 	case "red":
 		console.log(" apples are red");
@@ -18,7 +19,7 @@ switch (color) {
 		console.log(" apples are red");
 	break;
 	case "green":
-		console.log("the color of a pumkin");	
+		console.log("the color of a pumkin");
 	break;
 	default:
 		console.log("yo no se");
