@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+    <script src="js/PUSH%20UPS.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
     <title>Weather Map</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -49,7 +50,7 @@
 
 
 <nav class=" navbar  navbar-li bg-primary" id="navBar">
-    <a class="nav-item" href="" >WeatherApp</a>
+    <a class="nav-item" href="" >Your Local Weather Page</a>
 </nav>
 <br>
 
@@ -154,7 +155,14 @@
 
 <!--</main>-->
 
+<ul id="sausageId">Enter a Number</ul>
 
+<!--<form action="/action_page.php">-->
+<!--    <label for="number">your number:</label>-->
+<!--    <input type="number" id="number" name="fname"><br><br>-->
+
+<!--    <input type="submit" value="Submit">-->
+<!--</form>-->
 
 
 
@@ -429,6 +437,29 @@
     })(jQuery);
 
 
+
+
+    function sausageTimer(sausages){
+
+
+        let newSausage = document.createElement('li')
+    newSausage.innerText= ""
+        for(let i = 300; i > sausages; i--){
+            console.log(i)
+            if(1 % 15 === 0){
+                newSausage.innerHTML +='Eat My Sausages!'
+            } else if(1 % 5 === 1){
+                newSausage.innerHTML +="you don't have to eat my sausage today."
+                console.log("you don't have to eat my sausage today.")
+            } else{
+                newSausage.innerHTML +="Hey!"
+                console.log("Hey!")
+            }
+           document.getElementById('sausageId').appendChild(newSausage);
+        }
+
+    }
+    sausageTimer(0)
 
 
 
