@@ -155,7 +155,9 @@
 
 <!--</main>-->
 
-<ul id="sausageId">Enter a Number</ul>
+<ol id="sausageId">
+<li>Hi There.</li>
+</ol>
 
 <!--<form action="/action_page.php">-->
 <!--    <label for="number">your number:</label>-->
@@ -303,6 +305,7 @@
                   "Date: " + data.list[16].dt_txt.substring(0, data.list[0].dt_txt.indexOf(' '))
               )
               $('#date4').html(
+
                   "Date: " + data.list[24].dt_txt.substring(0, data.list[0].dt_txt.indexOf(' '))
               )
               $('#date5').html(
@@ -348,6 +351,9 @@
               )
 //*******************humidity**********************
 
+
+
+
               $('#humidity1').html(
                   "Humidity : " + data.list[0].main.humidity + '%'
               )
@@ -365,6 +371,14 @@
               )
 
 //*******************Wind**********************
+
+              // let winds = ['#wind1','#wind2','#wind3','#wind4','#wind5'];
+              //   let text ='';
+              // for (let i = 0; i < winds.length; i+=8) {
+              //     text +=  $('winds')[i].html(
+              //         "Wind Speed: " + data.list[].wind.speed + 'MPH'
+              //     );
+              // }
 
               $('#wind1').html(
                   "Wind Speed: " + data.list[0].wind.speed + 'MPH'
@@ -441,25 +455,29 @@
 
     function sausageTimer(sausages){
 
-
         let newSausage = document.createElement('li')
-    newSausage.innerText= ""
-        for(let i = 300; i > sausages; i--){
+        newSausage.innerText= ""
+
+        for(let i = 30; i > sausages; i--){
             console.log(i)
-            if(1 % 15 === 0){
-                newSausage.innerHTML +='Eat My Sausages!'
-            } else if(1 % 5 === 1){
-                newSausage.innerHTML +="you don't have to eat my sausage today."
+            if(i % 15 === 0){
+                console.log("Eat My Sausage")
+                newSausage.innerText='Eat My Sausages!'
+
+            } else if(i % 5 === 0){
+
+                newSausage.innerText+="you don't have to eat my sausage today."
                 console.log("you don't have to eat my sausage today.")
             } else{
-                newSausage.innerHTML +="Hey!"
+
+                newSausage.innerText +="Hey!"
                 console.log("Hey!")
             }
            document.getElementById('sausageId').appendChild(newSausage);
         }
 
     }
-    sausageTimer(0)
+    sausageTimer(-70)
 
 
 
